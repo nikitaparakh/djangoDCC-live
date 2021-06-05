@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Help Desk
+{% endblock title %}
+
+{% load static %}
+
+{% block body %}
+
+<!-- body {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsL-95lUk2GesxKPrd6RuTihZxYwVRA9MXiQ&usqp=CAU');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  width: 100%;
+  color: white;
+}  -->
+<style>
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    
+    /* Full-width input fields */
+    input[type=text], input[type=email], textarea[type=text] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    
+    
+    /* Center the image and position the close button */
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+    }
+    
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+    
+    .container {
+      padding: 16px;
+    }
+    
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+    
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 60px;
+    }
+    
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
+    
+    
+    
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+    
+    @-webkit-keyframes animatezoom {
+      from {-webkit-transform: scale(0)} 
+      to {-webkit-transform: scale(1)}
+    }
+      
+    @keyframes animatezoom {
+      from {transform: scale(0)} 
+      to {transform: scale(1)}
+    }
+    
+
+    .btn {
+        background-color: darkblue;
+        width: 150px;
+        margin:0 auto;  
+        font-size: large; 
+        color: white;    
+    }
+
+
+    .imgcontainer {
+        font-size: larger;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .heading {
+      color:purple;
+      font-style: inherit;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    </style>
+   
+<div class="container" style="width:60%; ">
+ 
+    {% load static %}
+      <form action="helpDesk" method="post">
+        {% csrf_token %}
+
+        <div class="imgcontainer">
+            <h2 class="heading">HELP DESK</h2>
+        </div>
+
+        <br>
+
+        <div>
+          <h6>
+              &nbsp;
+              &nbsp;
+              Send us your message and we will be in touch within one business day.
+              &#128516;
+
+          </h6>
+        </div>
+    
+        <div class="container">
+          <label for="name"><b>Name </b></label>
+          <input type="text" placeholder="Enter your name"  name="name"  id="name" required>
+          
+          <br><br>
+
+          <label for="email"><b>Email </b></label>
+          <input type="email" placeholder="Enter your registered mail ID"  name="email"  id="email" required>
+          
+          <br><br>
+
+          <label for="description"><b>Description </b></label>
+          <textarea type="text" placeholder="Write description"  name="description"  id="description" required></textarea>
+          
+          <br><br>
+
+          
+          <div  style="margin-left:38.5%">
+          <button class="btn" type="submit">Submit Query</button>
+        </div>
+
+    
+        <br>
+      </form>
+{% endblock body %}

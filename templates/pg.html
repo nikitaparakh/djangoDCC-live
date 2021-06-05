@@ -1,0 +1,221 @@
+{% extends 'base.html' %}    
+
+{% block style %}
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-family: 'Merriweather', serif;
+    }
+
+    .nav-link{
+        color:black;
+        font-weight: 600;
+    }
+
+    .navbar-brand{
+        color:black;
+        font-weight: 700;
+    }
+
+    .main{
+        background:url(https://d2bxpw04qb5rhq.cloudfront.net/production/property_image/image/111878/a44d57d8f76c01547a76bd7d56e15f588eb4e26cdb179f7867dbaec3c4aac1dd80a2a216bed105e1/3.jpg)no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+    }
+
+    .main h1{
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+    .card{
+        border: none;
+    } 
+
+    .main label{
+        color:rgb(104,89,89);
+        font-weight: 600;
+    }
+
+    .main input{
+        outline: none;
+        padding: 0 20px;
+        /*height: 40px;
+        width: 90px;
+    */
+    }
+
+    .main .btn1{
+        background-color: OrangeRed;
+        color:white;
+        outline: none;
+        border: none;
+        width:90px;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .btn1:hover{
+        background-color: tomato;
+        transition: 0.5s;
+    }
+
+    .row{
+            
+    }
+{% endblock style %}
+
+
+{% block body %}  
+<section class="main py-5">
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-lg-10 py-5 mx-auto">
+                <h1 class="text-black text-center" >Find your Paying Guest Rooms  </h1>
+                <h6 class="text-black text-center">We offer the Best Deals</h6>
+        <form method="POST" action="/search_house">
+            {% csrf_token %}
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <label for="vacancy">Room Sharing </label>
+                                <input type="number" name="vacancy" class="form-control" id="vacancy" placeholder="Number of sharing">
+                              </div>
+
+                            <div class="col-lg-3">
+                                 
+                                <label for="kitchen">Kitchen Availability :</label>
+                                <br>
+                                &nbsp;
+                                &nbsp;
+                                Yes  <input type="radio"  name="kitchen" value="yes"> 
+                                &nbsp;
+                                &nbsp;
+                                No   <input type="radio"  name="kitchen" value="no">  
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="bathroom">Attached Bathroom </label>
+                                <br>
+                                &nbsp;
+                                &nbsp;
+                                Yes  <input type="radio"  name="bathroom" value="yes"> 
+                                &nbsp;
+                                &nbsp;
+                                No   <input type="radio"  name="bathroom" value="no">  
+                                
+                            </div> 
+                            <div class="col-lg-3">
+                                <label for="electricity">24*7 Electricity Availability</label>
+                                <br>
+                                &nbsp;
+                                &nbsp;
+                                Yes  <input type="radio"  name="electricity" value="yes"> 
+                                &nbsp;
+                                &nbsp;
+                                No   <input type="radio"  name="electricity" value="no">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="water">24*7 Water Availability </label>
+                                  &nbsp;
+                                  &nbsp;
+                                  Yes  <input type="radio"  name="water" value="yes"> 
+                                  &nbsp;
+                                  &nbsp;
+                                  No   <input type="radio"  name="water" value="no">  
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="livingRoom">Living Room Available : </label>
+                                &nbsp;
+                                  &nbsp;
+                                  Available  <input type="radio"  name="livingRoom" value="yes"> 
+                                  &nbsp;
+                                  &nbsp;
+                                  Unavailable   <input type="radio"  name="livingRoom" value="no">  
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="gallery">Balcony Availablility </label>
+                                <br>
+                                  &nbsp;
+                                  &nbsp;
+                                  Yes <input type="radio"  name="gallery" value="yes"> 
+                                  &nbsp;
+                                  &nbsp;
+                                  No <input type="radio"  name="gallery" value="no">   
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="Wifi">Wifi Available : </label>
+                                <br> 
+                                &nbsp;
+                                  &nbsp;
+                                  Yes  <input type="radio"  name="Wifi" value="yes"> 
+                                  &nbsp;
+                                  &nbsp;
+                                  No <input type="radio"  name="Wifi" value="no">  
+                            </div>
+                            <br>
+                            <br>
+                            <div class="col-lg-3">
+                                
+                                    <label for="tv">TV Available:</label>
+                                    <br>  
+                                      &nbsp;
+                                      &nbsp;
+                                     Yes  <input type="radio"  name="tv" value="yes"> 
+                                      &nbsp;
+                                      &nbsp;
+                                      No   <input type="radio"  name="tv" value="no">   
+                         </div>
+                            
+                            <div class="col-lg-3">
+                                <label for="min_rent">Minimum Rent Price</label>
+                                <input type="number" name="min_rent" class="form-control" id="min_rent" placeholder="Min Monthly Rent">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="max_rent">Maximum Rent Price</label>
+                                <input type="number" name="max_rent" class="form-control" id="max_rent" placeholder="Max Monthly Rent">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="city">Enter the city </label>
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <select name="city" id="city">    
+                                    <option value="Hubli">Hubli</option>
+                                    <option value="Dharwad">Dharwad</option>
+                                    <option value="Belgaum">Belgaum</option>
+                                    <option value="Bangalore">Bangalore</option>
+                                  </select>
+                            </div>
+                                
+                        
+                            
+                        </div>
+                        <center>
+                            <div >
+                                <input type="submit" class="btn1" value="Search">
+                            </div> 
+                        </center>
+                                   
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+{% endblock body %}

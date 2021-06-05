@@ -1,0 +1,207 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Add PG|Rental Home
+{% endblock title %}
+<!-- <script>
+    body {
+        text-align : "center",
+    }
+</script> -->
+{% block body %}
+<body>
+  <div class="container mt-3">
+    <h2 class="text-center">Give the details</h2>
+    <br>
+    <form method="POST" action="add_instance">
+      {% csrf_token %}
+      <div>
+          <label for="category">Category : </label> 
+            &nbsp;
+            &nbsp;
+            Paying Guest(PG)  <input type="radio"  name="type" value="pg"> 
+            &nbsp;
+            &nbsp;
+            Rental Home   <input type="radio"  name="type" value="rent">  
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="numberOfBedrooms">Number of bedrooms</label>
+        <input type="text" name="numberOfBedrooms" class="form-control" id="numberOfBedrooms" placeholder="Enter Number of Bedrooms">
+      </div>
+
+      <div class="form-group">
+        <label for="floor">Floor Number</label>
+        <input type="number" name="floor" class="form-control" id="floor" placeholder="Enter the floor number">
+      </div>
+
+      <br>
+      
+      <div>
+        <label for="lift">Lift Availability : </label> 
+          &nbsp;
+          &nbsp;
+          Yes  <input type="radio"  name="lift" value="yes"> 
+          &nbsp;
+          &nbsp;
+          No   <input type="radio"  name="lift" value="no">  
+      </div>
+
+      <br>
+      
+      <div>
+        <label for="kitchen">Kitchen Availability: </label>
+          &nbsp;
+          &nbsp;
+          Yes  <input type="radio"  name="kitchen" value="yes"> 
+          &nbsp;
+          &nbsp;
+          No   <input type="radio"  name="kitchen" value="no">  
+      </div>
+
+      <br>
+      
+      <div>
+      <label for="bathroom">Attached Bathroom :</label>
+        &nbsp;
+        &nbsp;
+        Yes  <input type="radio"  name="bathroom" value="yes"> 
+        &nbsp;
+        &nbsp;
+        No   <input type="radio"  name="bathroom" value="no">  
+      </div>
+
+      <br>
+      
+      <div>
+        <label for="electricity">24*7 Electricity Availability :</label>
+        &nbsp;
+        &nbsp;
+        Yes  <input type="radio"  name="electricity" value="yes"> 
+        &nbsp;
+        &nbsp;
+        No   <input type="radio"  name="electricity" value="no">  
+      </div>
+
+      <br>
+          
+      <div>
+        <label for="water">24*7 Water Availability :</label>
+          &nbsp;
+          &nbsp;
+          Yes  <input type="radio"  name="water" value="yes"> 
+          &nbsp;
+          &nbsp;
+          No   <input type="radio"  name="water" value="no">  
+      </div>
+
+      <br>
+            
+        <div>
+          <label for="livingRoom">Living Room Available : </label>
+          &nbsp;
+            &nbsp;
+            Available  <input type="radio"  name="livingRoom" value="yes"> 
+            &nbsp;
+            &nbsp;
+            Unavailable   <input type="radio"  name="livingRoom" value="no">  
+        </div>
+      <br>
+      
+      <div>
+        <label for="gallery">Balcony Available :</label>
+        &nbsp;
+          &nbsp;
+          Available  <input type="radio"  name="gallery" value="yes"> 
+          &nbsp;
+          &nbsp;
+          Unavailable   <input type="radio"  name="gallery" value="no">   
+      </div>
+
+      <br>
+            
+        <div>
+          <label for="Wifi">Wifi Available : </label>
+          &nbsp;
+            &nbsp;
+            Available  <input type="radio"  name="Wifi" value="yes"> 
+            &nbsp;
+            &nbsp;
+            Unavailable   <input type="radio"  name="Wifi" value="no">  
+      </div>
+      <br>
+      
+        <div>
+          <label for="tv">TV Available :</label>
+            &nbsp;
+            &nbsp;
+            Available  <input type="radio"  name="tv" value="yes"> 
+            &nbsp;
+            &nbsp;
+            Unavailable   <input type="radio"  name="tv" value="no">   
+      </div>
+      <br>
+
+      <div>
+          <label for="pets">Pets Allowed :</label>
+            &nbsp;
+            &nbsp;
+            Yes  <input type="radio"  name="pets" value="yes"> 
+            &nbsp;
+            &nbsp;
+            No   <input type="radio"  name="pets" value="no">  
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label for="rent">Rent</label>
+        <input type="number" name="rent" class="form-control" id="rent" placeholder="Enter the rent to be paid monthly">
+      </div>
+
+      <div class="form-group">
+        <label for="vacancy">Vacanies Available</label>
+        <input type="number" name="vacancy" class="form-control" id="vacancy" placeholder="Enter number of Vacancies">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Owner's Contact Number</label>
+        <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter owner's contact number">
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address of House</label>
+        <input type="text" name="address" class="form-control" id="address" placeholder="Enter address of the house">
+      </div>
+      	
+      <br>
+
+      <div>
+        <label for="city">City</label>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <select name="city" id="city">    
+            <option value="Hubli">Hubli</option>
+            <option value="Dharwad">Dharwad</option>
+            <option value="Belgaum">Belgaum</option>
+            <option value="Bangalore">Bangalore</option>
+          </select>
+      </div>
+
+      <br>
+      <div class="form-group">
+        <label for="img">Add Image</label>
+        <input type="image" name="img" class="form-control" id="img" placeholder="Add an image of the Rental home/PG">
+      </div>
+
+      <br>
+      <center>
+        <input type="submit" class="btn btn-primary" width="200%" aria-setsize="large">
+      </center>
+    </form>
+  </div>
+</body>
+{% endblock body %}

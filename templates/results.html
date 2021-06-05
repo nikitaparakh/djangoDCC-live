@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Search Results</title>
+    </head>
+    <body>
+        <h1>Search Results: </h1>
+        <hr color="blue">
+        <hr color="red">
+
+        <p>
+            {% block content %}
+                <ol>
+                {% for object in objects %}
+                    
+                    <li>
+                        <ul>
+                        <li>Number of bedrooms: {{object.bedrooms}}</li>
+                        <li>Floor: {{object.floor}}</li>
+                        <li>Lift Availability: {{object.lift}}</li>
+                        <li>Kitchen Availability: {{object.kitchen}}</li>
+                        <li>Attached Bathroom Availability: {{object.bathroom}}</li>
+                        <li>24/7 Electricity: {{object.electricity}}</li>
+                        <li>24/7 Water: {{object.water}}</li>
+                        <li>Gallery: {{object.gallery}}</li>
+                        <li>Living Room: {{object.living}}</li>
+                        <li>Wi-Fi Availability: {{object.wifi}}</li>
+                        <li>TV Availability: {{object.tv}}</li>
+                        <li>Pets Allowed: {{object.pets}}</li>
+                        <li>Rent (per month): {{object.rent}}</li>
+                        <li>Number of Vacancies: {{object.vacancies}}</li>
+                        <li>Call owner: {{object.phone}}</li>
+                        <li>House address: {{object.address}}</li>
+                        <li>Location: {{object.location}}</li>
+                        </ul>
+                    </li>
+                    
+                {% endfor %}
+                </ol>
+            {% endblock %}
+        </p>        
+        
+    </body>
+</html>

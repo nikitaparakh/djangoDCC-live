@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  About
+{% endblock title %}
+
+{% block style %}
+
+<style>
+  #block {
+    font-style: initial;
+    font-size: x-large;
+  }
+
+  h2 {
+    color: darkmagenta;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .vertical {
+    border-left: 4px solid purple;
+    height: 30px;
+    position:absolute;
+    font-style: italic;
+    font-size: 100%;
+    margin-bottom: 5px;
+    margin-top: 20px;
+  }
+
+
+</style>
+{% endblock style %}
+
+
+{% block body %}
+
+<br><br>
+<div class="container" style="width: 100%;">
+  <h2>ABOUT US</h2>
+
+  <div class="row"> 
+    <!-- Blog -->
+
+    <section class="blog mt10">
+      <div class="col-md-15"> 
+        <!-- Article -->
+        <article>
+          <div class="row">
+            <!-- <div class="col-sm-7 col-xs-10 meta">
+              </div> -->
+            <div class="col-md-12">
+              <br>
+              <p>Magic Search comes up with an online application that provides user to search a rental home or a paying guest room with ease. 
+                It reduces the work load of clients to find a rental home or PG for himself. That is, the clients need not contact any broker or 
+                manually search for a rental home or PG. Magic Search is cost effective and time saving. </p>
+              
+<!-- 
+              <div >
+                
+              </div> -->
+
+              <div id="block"  class = "vertical" style="color:purple;" >
+                <blockquote>
+                  <p><strong><em> &nbsp;  "WE OFFER GREAT SERVICES AT A REASONABLE PRICE"</em></strong></p>
+                </blockquote>
+              </div>
+
+              <br><br>        
+              <br>
+
+              <p>You can check our services <a href="services">Here</a></p>
+              
+
+                You can contact us using - 
+                <br>
+                <i style='font-size:20px' class='fas fa-phone	'></i>
+
+                Customer care number - 04023354065
+                <br>
+                <i style='font-size:20px' class='fas fa-sms	'></i>
+	
+                Submitting the form available at <a href="helpDesk">Help Desk</a>.
+                <br>
+
+                	
+                <i style='font-size:20px' class='fab fa-twitter '></i>
+
+                Twitter - magicsearch 
+                <br>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+
+
+            </div>
+          </div>
+        </article>
+        
+    
+        
+
+      </div>
+    </section>
+    
+    
+{% endblock body %}

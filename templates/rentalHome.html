@@ -1,0 +1,219 @@
+
+{% extends 'base.html' %}    
+
+
+<!-- Required meta tags
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+-->
+<!-- Bootstrap CSS 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+<title>Hello, world!</title>
+-->
+{% block style %}
+
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+    body{
+    font-family: 'Merriweather', serif;
+    }
+
+    .nav-link{
+    color:black;
+    font-weight: 600;
+    }
+
+    .navbar-brand{
+    color:black;
+    font-weight: 700;
+    }
+
+    .main{
+      background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://images.saymedia-content.com/.image/t_share/MTc2MjY0ODY1MTIyNjkwMjIx/new-house-floor-plans_dream-house-plans.png)no-repeat;
+      background-size: 100% 100%;
+      width: 100%;
+    }
+
+    .main h1{
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .card{
+      border: none;
+    } 
+    
+    .main label{
+      color:rgb(104,89,89);
+      font-weight: 600;
+    }
+
+    .main input{
+      outline: none;
+      padding: 0 20px;
+      /* 
+      height: 40px;
+      width: 90px; 
+      */
+    }
+
+    .main .btn1{
+      background-color: coral;
+      color:white;
+      outline: none;
+      border: none;
+      width: 90px;
+      height: 40px;
+      margin-top: 32px;
+    }
+
+    .btn1:hover{
+      background-color: tomato;
+      transition: 0.5s;
+    }
+
+{% endblock style %}
+
+   
+{% block body %}  
+<section class="main py-5">
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-lg-10 py-5 mx-auto">
+                <h1 class="text-white text-center">Find your Dream House </h1>
+                <p class="text-white text-center">We offer the best Deals</p>
+                <form method="POST" action="/search_house">
+                    {% csrf_token %}
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <label for="bedrooms">Number of Bedrooms</label>
+                                        <input type="number" name="bedrooms" class="form-control" id="bedrooms" >
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <label for="floor">Floor Number</label>
+                                        <input type="number" name="floor" class="form-control" id="floor" >
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <label for="bathroom">Attached Bathroom </label>
+                                        <br>
+                                        &nbsp;
+                                        &nbsp;
+                                        Yes  <input type="radio"  name="bathroom" value="yes"> 
+                                        &nbsp;
+                                        &nbsp;
+                                        No   <input type="radio"  name="bathroom" value="no">  
+                                        
+                                    </div> 
+
+                                    <div class="col-lg-3">
+                                        <label for="electricity">24*7 Electricity Availability</label>
+                                        <br>
+                                        &nbsp;
+                                        &nbsp;
+                                        Yes  <input type="radio"  name="electricity" value="yes"> 
+                                        &nbsp;
+                                        &nbsp;
+                                        No   <input type="radio"  name="electricity" value="no">
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <label for="water">24*7 Water Availability </label>
+                                          &nbsp;
+                                          &nbsp;
+                                          Yes  <input type="radio"  name="water" value="yes"> 
+                                          &nbsp;
+                                          &nbsp;
+                                          No   <input type="radio"  name="water" value="no">  
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <label for="gallery">Balcony Availablility </label>
+                                        <br>
+                                          &nbsp;
+                                          &nbsp;
+                                          Yes <input type="radio"  name="gallery" value="yes"> 
+                                          &nbsp;
+                                          &nbsp;
+                                          No <input type="radio"  name="gallery" value="no">   
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <label for="lift">Lift Availability : </label> 
+                                          <br>
+                                          &nbsp;
+                                          
+                                          Yes  <input type="radio"  name="lift" value="yes"> 
+                                          &nbsp;
+                                          &nbsp;
+                                          No   <input type="radio"  name="lift" value="no">  
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <label for="pets">Pets Allowed :</label>
+                                          &nbsp;
+                                          &nbsp;
+                                          <br>
+                                          Yes  <input type="radio"  name="pets" value="yes"> 
+                                          &nbsp;
+                                          &nbsp;
+                                          No   <input type="radio"  name="pets" value="no">  
+                                    </div>
+
+                                    <br>
+                                    <br>
+                                    
+                                    <div class="col-lg-3">
+                                        <label for="min_rent">Minimum Rent Price</label>
+                                        <input type="number" name="min_rent" class="form-control" id="min_rent" placeholder="Enter the minimum rent you can pay for month">
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <label for="max_rent">Maximum Rent Price</label>
+                                        <input type="number" name="max_rent" class="form-control" id="max_rent" placeholder="Enter the maximum rent you can pay for month">
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <label for="city">Enter the city </label>
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        <select name="city" id="city">    
+                                            <option value="Hubli">Hubli</option>
+                                            <option value="Dharwad">Dharwad</option>
+                                            <option value="Belgaum">Belgaum</option>
+                                            <option value="Bangalore">Bangalore</option>
+                                          </select>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <input type="submit" class="btn1" value="Search">
+                                    </div>                 
+                        
+                                
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+{% endblock body %}
